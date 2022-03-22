@@ -2,10 +2,6 @@
 
 Junior Front End Engineer Interview Questions
 
-## 정리한 내용 포스팅
-
-* https://velog.io/@koremp/jr-fe-interview
-
 ## Related Repository
 
 * https://github.com/baeharam/Must-Know-About-Frontend
