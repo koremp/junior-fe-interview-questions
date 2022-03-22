@@ -44,10 +44,10 @@
     - 
     
 - Browser Rendering - Before Rendering
-    - 크롬 애플리케이션에 구현된 Windows Message Loop에서 WM_KEYUP 메시지를 처리합니다. 크롬 애플리케이션에 해당 메시지가 들어왔을 때 연결된 이벤트 리스너가 실행될 것입니다. 해당 이벤트 리스너는 [http://google.com](http://google.com/) 으로 저장되어 있는 쿠키와 함께 HTTP Request를 만들고,
-    - [http://google.com의](http://google.xn--com-yh0o/) IP주소를 알아내기 위해 함수를 호출할 것입니다. 크롬이 libdns을 사용한다고 가정했을 때, libdns는 UDP socket을 만들고, 커널을 호출합니다. 커널은 설정된 UDP Stack을 통해 하드웨어가 UDP 패킷을 보내도록 합니다.
-    - [http://google.com의](http://google.xn--com-yh0o/) IP 주소를 질의하기 위해 컴퓨터는 루트 DNS에 .com 네임서버 주소를 질의하게 됩니다. 루트 DNS는 .com 네임서버의 IP주소를 응답하여 보내고, 다시 컴퓨터는 이를 확인하여 UDP socket을 통해 .com 네임서버에 [http://google.com의](http://google.xn--com-yh0o/) 서버 주소를 질의하게 됩니다.
-    - 물론 이 과정은 필수적인 과정은 아닙니다. 왜냐하면 유저는 대부분 DNS 캐시 서버 (예를들어, 1.1.1.1, 8.8.8.8, 또는 ISP에서 제공하는 서버)에 이미 [http://google.com의](http://google.xn--com-yh0o/) DNS 레코드가 캐시되어 있을 것이므로 캐시 서버로 DNS 질의 패킷을 보내게 되면 루트 DNS 서버에 질의하는 과정을 생략할 수 있을 것입니다.
-    - 이제 크롬 소프트웨어는 [http://google.com의](http://google.xn--com-yh0o/) IP주소를 얻었습니다. [http://google.com은](http://google.xn--com-7e0o/) HSTS Preload되어있으므로 TCP 프로토콜로 443포트로 연결을 시도할 겁니다. 그리고 ClientHello 를 보낼 것입니다.
+    - 크롬 애플리케이션에 구현된 Windows Message Loop에서 WM_KEYUP 메시지를 처리합니다. 크롬 애플리케이션에 해당 메시지가 들어왔을 때 연결된 이벤트 리스너가 실행될 것입니다. 해당 이벤트 리스너는 http://google.com 으로 저장되어 있는 쿠키와 함께 HTTP Request를 만들고,
+    - http://google.com의 IP주소를 알아내기 위해 함수를 호출할 것입니다. 크롬이 libdns을 사용한다고 가정했을 때, libdns는 UDP socket을 만들고, 커널을 호출합니다. 커널은 설정된 UDP Stack을 통해 하드웨어가 UDP 패킷을 보내도록 합니다.
+    - http://google.com의 IP 주소를 질의하기 위해 컴퓨터는 루트 DNS에 .com 네임서버 주소를 질의하게 됩니다. 루트 DNS는 .com 네임서버의 IP주소를 응답하여 보내고, 다시 컴퓨터는 이를 확인하여 UDP socket을 통해 .com 네임서버에 http://google.com 서버 주소를 질의하게 됩니다.
+    - 물론 이 과정은 필수적인 과정은 아닙니다. 왜냐하면 유저는 대부분 DNS 캐시 서버 (예를들어, 1.1.1.1, 8.8.8.8, 또는 ISP에서 제공하는 서버)에 이미 http://google.com의 DNS 레코드가 캐시되어 있을 것이므로 캐시 서버로 DNS 질의 패킷을 보내게 되면 루트 DNS 서버에 질의하는 과정을 생략할 수 있을 것입니다.
+    - 이제 크롬 소프트웨어는 http://google.com의 IP주소를 얻었습니다. http://google.com은 HSTS Preload되어있으므로 TCP 프로토콜로 443포트로 연결을 시도할 겁니다. 그리고 ClientHello 를 보낼 것입니다.
     - ClientHello에는 Client가 지원하는 Cipher Suite, SNI 등등이 들어가 있습니다. 이를 받은 서버는 Server Hello 와 함께 Certificate를 전달합니다. 이후에는 협의된 Cipher Suite에 따라 암호화가 진행됩니다.
     - 클라이언트는 이후 HTTP 요청을 암호화해서 보내게 되고, 구글 서버는 HTTP 응답을 암호화해서 보내게 됩니다
