@@ -9,3 +9,4 @@ Junior Front End Engineer Interview Questions
 * https://roadmap.sh/frontend
 * https://subicura.com/2021/06/27/study-guide.html#%EB%94%94%ED%85%8C%EC%9D%BC%EC%9D%84-%EB%86%92%EC%9D%B4%EC%9E%90
 * https://m.blog.naver.com/cookr3/222388178531
+![image](https://user-images.githubusercontent.com/18482476/165735450-0a73097d-7613-441e-821c-f3062f63805e.png)
